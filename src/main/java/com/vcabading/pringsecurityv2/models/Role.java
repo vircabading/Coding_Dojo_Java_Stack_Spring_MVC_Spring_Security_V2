@@ -25,10 +25,12 @@ public class Role {
     @Id
     @GeneratedValue
     private Long id;
+    
+    
     private String name;
     
       // **** Many-To-Many Relationship ********************
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "users_roles", 
         joinColumns = @JoinColumn(name = "role_id"), 

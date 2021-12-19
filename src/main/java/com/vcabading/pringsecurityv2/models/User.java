@@ -37,7 +37,7 @@ public class User {
     private Date updatedAt;
     
     // **** Many-To-Many Relationship ********************
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "users_roles", 
         joinColumns = @JoinColumn(name = "user_id"), 
