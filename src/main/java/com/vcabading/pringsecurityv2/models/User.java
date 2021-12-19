@@ -3,7 +3,6 @@ package com.vcabading.pringsecurityv2.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.management.relation.Role;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,6 +16,7 @@ import javax.persistence.Transient;
 
 /** ******************************************************
  * 	Users Class 
+ * 	******************************************************
  */
 
 @Entity
@@ -37,7 +37,7 @@ public class User {
     private Date updatedAt;
     
     // **** Many-To-Many Relationship ********************
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "users_roles", 
         joinColumns = @JoinColumn(name = "user_id"), 
@@ -48,6 +48,7 @@ public class User {
     
     public User() {
     }
+    
     
     //	**** GETTERS AND SETTERS *************************
 
@@ -106,3 +107,7 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
+
+
+
+}
