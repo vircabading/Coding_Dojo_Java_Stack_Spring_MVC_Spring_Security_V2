@@ -30,10 +30,10 @@ public class User {
     @GeneratedValue
     private Long id;
     
-    @Size(min=3, message="Username must be greater than 3 characters")
+    @Size(min=3)
     private String username;
     
-    @Size(min=8, message="Password must be at least 8 characters")
+    @Size(min=8)
     private String password;
     @Transient
     private String passwordConfirmation;

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.vcabading.springsecurityv2.models.User;
 import com.vcabading.springsecurityv2.services.UserService;
+import com.vcabading.springsecurityv2.validator.UserValidator;
 
 /////////////////////////////////////////////////////////////////
 //	USERS CONTROLLER
@@ -25,8 +26,11 @@ public class Users {
 	
     private UserService userService;
     
-    public Users(UserService userService) {
+    private UserValidator userValidator;
+    
+    public Users(UserService userService, UserValidator userValidator) {
         this.userService = userService;
+        this.userValidator = userValidator;
     }
     
     @RequestMapping("/registration")
@@ -36,7 +40,8 @@ public class Users {
     
     @PostMapping("/registration")
     public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, HttpSession session) {
-        if (result.hasErrors()) {
+    	userValidator.validate(user, result);
+    	if (result.hasErrors()) {
             return "registrationPage.jsp";
         }
         userService.saveWithUserRole(user);
