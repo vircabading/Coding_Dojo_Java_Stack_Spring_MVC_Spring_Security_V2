@@ -1,4 +1,4 @@
-package com.vcabading.pringsecurityv2;
+package com.vcabading.springsecurityv2;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

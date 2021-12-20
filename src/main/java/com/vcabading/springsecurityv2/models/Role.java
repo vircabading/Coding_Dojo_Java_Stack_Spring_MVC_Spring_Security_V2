@@ -1,4 +1,4 @@
-package com.vcabading.pringsecurityv2.models;
+package com.vcabading.springsecurityv2.models;
 
 import java.util.List;
 

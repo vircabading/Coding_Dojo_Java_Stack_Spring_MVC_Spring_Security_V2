@@ -1,4 +1,4 @@
-package com.vcabading.pringsecurityv2.services;
+package com.vcabading.springsecurityv2.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.vcabading.pringsecurityv2.models.Role;
-import com.vcabading.pringsecurityv2.models.User;
-import com.vcabading.pringsecurityv2.repositories.UserRepository;
+import com.vcabading.springsecurityv2.models.Role;
+import com.vcabading.springsecurityv2.models.User;
+import com.vcabading.springsecurityv2.repositories.UserRepository;
 
 @Service
 public class UserDetailsServiceImplementation implements UserDetailsService {

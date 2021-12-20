@@ -1,4 +1,4 @@
-package com.vcabading.pringsecurityv2.models;
+package com.vcabading.springsecurityv2.models;
 
 import java.util.Date;
 import java.util.List;
@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Size;
 
 /** ******************************************************
  * 	Users Class 
@@ -28,7 +29,11 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
+    
+    @Size(min=3, message="Username must be greater than 3 characters")
     private String username;
+    
+    @Size(min=8, message="Password must be at least 8 characters")
     private String password;
     @Transient
     private String passwordConfirmation;

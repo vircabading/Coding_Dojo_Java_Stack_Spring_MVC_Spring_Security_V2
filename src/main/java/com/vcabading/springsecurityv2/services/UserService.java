@@ -1,12 +1,13 @@
-package com.vcabading.pringsecurityv2.services;
+package com.vcabading.springsecurityv2.services;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.vcabading.pringsecurityv2.models.User;
-import com.vcabading.pringsecurityv2.repositories.RoleRepository;
-import com.vcabading.pringsecurityv2.repositories.UserRepository;
+import com.vcabading.springsecurityv2.models.User;
+import com.vcabading.springsecurityv2.repositories.RoleRepository;
+import com.vcabading.springsecurityv2.repositories.UserRepository;
 
+ 
 @Service
 public class UserService {
     private UserRepository userRepository;
@@ -39,3 +40,4 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 }
+
