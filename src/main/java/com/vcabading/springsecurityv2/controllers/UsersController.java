@@ -33,10 +33,25 @@ public class UsersController {
         this.userValidator = userValidator;
     }
     
+    //	**** Register User *********************************
+    
     @RequestMapping("/registration")
     public String registerForm(@Valid @ModelAttribute("user") User user) {
         return "registrationPage.jsp";
     }
+    
+    
+    @PostMapping("/registration")
+    public String registration(@Valid @ModelAttribute("user") User user, BindingResult result, Model model, HttpSession session) {
+    	userValidator.validate(user, result);
+    	if (result.hasErrors()) {
+            return "registrationPage.jsp";
+        }
+        userService.saveWithUserRole(user);
+        return "redirect:/login";
+    }
+    
+    //	**** Register Admin ********************************
     
     @RequestMapping("/registration/admin")
     public String registerAdminForm(@Valid @ModelAttribute("user") User user) {

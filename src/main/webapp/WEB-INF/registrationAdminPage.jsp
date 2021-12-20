@@ -39,11 +39,9 @@
 	<main role="main">
 		<div class="container mt-4">
 			<h1>Register Admin!</h1>
-
 			<p>
 				<form:errors path="user.*" />
 			</p>
-
 			<form:form method="POST" action="/registration/admin" modelAttribute="user">
 				<p>
 					<form:label path="username">Username:</form:label>
